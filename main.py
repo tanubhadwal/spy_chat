@@ -155,7 +155,7 @@ def read_chat_history():
 
     for chat in friends[read_for].chats:
         if chat.sent_by_me:
-            print '[%s] %s: %s' % (chat.time.strftime("%d %B %Y"), 'You said:', chat.message)
+            print '[%s] %s: %s' % (Fore.BLUE+(chat.time.strftime("%d %B %Y")), 'You said:', chat.message)
 
         else:
             print '[%s] %s said: %s' % (chat.time.strftime("%d %B %Y"), friends[read_for].name, chat.message)
@@ -182,10 +182,8 @@ def start_chat(spy):
                 menu_choice = int(menu_choice)
 
                 if menu_choice == 1:
-
-                    current_status_message = add_status(current_status_message)
-
-
+                    current_status_message = raw_input()
+                    add_status(current_status_message)
                 elif menu_choice == 2:
 
                     number_of_friends = add_friend()
