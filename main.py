@@ -155,13 +155,12 @@ def read_chat_history():
 
     for chat in friends[read_for].chats:
         if chat.sent_by_me:
-            print '[%s] %s: %s' % (Fore.BLUE+(chat.time.strftime("%d %B %Y")), 'You said:', chat.message)
+            init(autoreset=True)
+            msg_date = Fore.BLUE + chat.time.strftime("%d %B %Y") + Style.RESET_ALL
 
+            print '[%s] %s: %s' % (msg_date, 'You said:', chat.message)
         else:
-            print '[%s] %s said: %s' % (chat.time.strftime("%d %B %Y"), friends[read_for].name, chat.message)
-
-
-
+            print '[%s] %s said: %s' % (msg_date, friends[read_for].name, chat.message)
 
 def start_chat(spy):
     spy_name = spy.salutation + " " + spy.name
